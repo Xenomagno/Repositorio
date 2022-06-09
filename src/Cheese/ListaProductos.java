@@ -79,6 +79,7 @@ public class ListaProductos {
      * @return si la key está bien registra el producto y si sale mal te devuelve un valor nulo
      */
     public Producto registraProducto(Producto prod) {
+    	if(parametro_vacio(prod.getcode())) return null;
         
         if (listaP.containsKey(prod.getcode())) {
            return null;
@@ -95,6 +96,8 @@ public class ListaProductos {
      */
 
     public Producto descartaProducto(String codigo) { 
+    	
+    	if (parametro_vacio(codigo)) return null;
         
         Producto prod = encuentraProducto(codigo);
         if (prod != null) {
@@ -110,6 +113,7 @@ public class ListaProductos {
      * @return si la lista no contiene el código del producto devolver producto, sino devuelve el código del producto
      */
     public Producto encuentraProducto(String codigo) { 
+    	if (parametro_vacio(codigo)) return null;
         Producto prod = null;
         
         if (!listaP.containsKey(codigo)) {

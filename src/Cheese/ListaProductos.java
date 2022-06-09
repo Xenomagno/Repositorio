@@ -32,6 +32,7 @@ public class ListaProductos {
      */
     private static int n = 0;
     
+   
     private int getNumProductos() {
         return n;
     }
@@ -49,6 +50,11 @@ public class ListaProductos {
     
         if ((campo.replace(" ","").isEmpty()) || (campo == null))  return true; else return false;
     }
+    
+    /**
+     * Poner noNamed a los productos que no tengan nombre
+     * @param nombre String a analizar
+     */
 
     public ListaProductos(String nombre) {
     	if (parametro_vacio(nombre)) {
@@ -58,10 +64,20 @@ public class ListaProductos {
     	this.nombreLista = nombre;
     	}
     }
+    /**
+     * Obtener el número de productos
+     * @return el número total de productos
+     * 
+     */
     public int totalProductos(){
             return this.getNumProductos();
     }
         
+    /**
+     * Registrar un objeto
+     * @param prod objeto Producto
+     * @return si la key está bien registra el producto y si sale mal te devuelve un valor nulo
+     */
     public Producto registraProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -72,6 +88,11 @@ public class ListaProductos {
         this.setNumProductos(n);
         return prod;
     }
+    /**
+     * descartar  productos
+     * @param codigo String
+     * @return si el producto no es nulo lo descarta sino te devuelve el producto
+     */
 
     public Producto descartaProducto(String codigo) { 
         
@@ -83,7 +104,11 @@ public class ListaProductos {
         }
         return prod;
     }
-
+    /**
+     * encontrar un producto
+     * @param codigo String
+     * @return si la lista no contiene el código del producto devolver producto, sino devuelve el código del producto
+     */
     public Producto encuentraProducto(String codigo) { 
         Producto prod = null;
         
